@@ -1,0 +1,599 @@
+/* Tema Warna Savana Adventrip */
+:root {
+  --savana-green: #97bf0d;
+  --savana-dark-grey: #4a4a4a;
+  --savana-light-bg: #f7f6f2;
+  --savana-text-dark: #333333;
+  --savana-text-light: #ffffff;
+  --savana-border-color: #d1d1d1;
+  --savana-accent-green: #7eab3c;
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--savana-light-bg);
+  color: var(--savana-text-dark);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 700px;
+  margin: 20px auto;
+  background-color: var(--savana-text-light);
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 25px;
+  border-bottom: 2px solid var(--savana-green);
+  padding-bottom: 15px;
+}
+
+#appLogo {
+  max-width: 280px;
+  height: auto;
+  margin-bottom: 5px;
+}
+
+.app-header h1 {
+  color: var(--savana-dark-grey);
+  font-size: 2em;
+  margin-top: 0;
+  font-weight: 500;
+}
+
+h2 {
+  color: var(--savana-green);
+  text-align: left;
+  font-size: 1.6em;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid var(--savana-border-color);
+  padding-bottom: 8px;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: var(--savana-dark-grey);
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group input[type="date"],
+.form-group input[type="email"],
+.form-group select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--savana-border-color);
+  border-radius: 6px;
+  box-sizing: border-box;
+  font-size: 1em;
+  background-color: #fff;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: var(--savana-green);
+  box-shadow: 0 0 0 0.2rem rgba(151, 191, 13, 0.25);
+}
+
+.form-group small {
+  display: block;
+  font-size: 0.85em;
+  color: #777;
+  margin-top: 4px;
+}
+
+button.button-primary,
+button.button-secondary {
+  color: var(--savana-text-light);
+  padding: 12px 18px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.05em;
+  font-weight: 500;
+  margin-top: 10px;
+  width: 100%;
+  transition: background-color 0.2s ease-in-out;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+button.button-primary {
+  background-color: var(--savana-green);
+}
+button.button-primary:hover {
+  background-color: var(--savana-accent-green);
+}
+
+button.button-secondary {
+  background-color: var(--savana-dark-grey);
+}
+button.button-secondary:hover {
+  background-color: #616161;
+}
+
+#orderedItemsList {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+#orderedItemsList li {
+  background-color: #fdfdfd;
+  border: 1px solid var(--savana-border-color);
+  padding: 12px;
+  margin-bottom: 8px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.2s;
+}
+#orderedItemsList li:hover {
+  background-color: #f5f5f5;
+}
+
+#orderedItemsList li span:first-child {
+  flex-grow: 1;
+  color: var(--savana-text-dark);
+}
+#orderedItemsList li span:last-of-type {
+  font-weight: 500;
+  color: var(--savana-dark-grey);
+}
+
+.remove-item-btn {
+  background-color: #d9534f !important;
+  padding: 6px 12px !important;
+  font-size: 0.85em !important;
+  width: auto !important;
+  margin-left: 15px !important;
+  line-height: 1.2 !important;
+  text-transform: none !important;
+  color: white !important;
+}
+
+.remove-item-btn:hover {
+  background-color: #c9302c !important;
+}
+
+#discountAmount {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--savana-border-color);
+  border-radius: 6px;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+}
+
+.total-summary-display {
+  margin-top: 20px;
+  padding: 18px;
+  background-color: var(--savana-light-bg);
+  border: 1px solid var(--savana-border-color);
+  border-radius: 8px;
+}
+
+.total-summary-display p {
+  margin: 10px 0;
+  font-size: 1.15em;
+  display: flex;
+  justify-content: space-between;
+  color: var(--savana-dark-grey);
+}
+
+.total-summary-display p strong {
+  font-size: 1.25em;
+  color: var(--savana-green);
+}
+.total-summary-display p span {
+  font-weight: 600;
+}
+
+hr.section-divider {
+  border: none;
+  border-top: 1px solid var(--savana-border-color);
+  margin: 30px 0;
+}
+
+/* Gaya untuk Modal Nota (Tampilan di Layar) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+  background-color: var(--savana-text-light);
+  margin: 5% auto;
+  padding: 0; /* Padding akan diatur oleh #receiptOutput */
+  border: none;
+  width: 90%;
+  max-width: 600px; /* Lebar modal untuk nota A5-like */
+  border-radius: 10px;
+  position: relative;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.35);
+}
+/* Ornamen garis di modal */
+.modal-content::before,
+.modal-content::after {
+  content: "";
+  position: absolute;
+  left: 25px;
+  right: 25px;
+  height: 3px;
+  background-color: var(--savana-green);
+  opacity: 0.6;
+}
+.modal-content::before {
+  top: 10px;
+}
+.modal-content::after {
+  bottom: 10px;
+}
+
+.close-button {
+  color: #999;
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 36px;
+  font-weight: bold;
+  line-height: 1;
+  z-index: 10; /* Pastikan di atas ornamen */
+}
+
+.close-button:hover,
+.close-button:focus {
+  color: var(--savana-dark-grey);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Gaya untuk Konten Nota (#receiptOutput) Saat Tampil di Modal Layar */
+#receiptOutput {
+  border: none;
+  padding: 30px; /* Padding internal untuk konten nota */
+  margin: 0; /* Hapus margin jika padding sudah ada */
+  background-color: #ffffff;
+  font-size: 1em;
+  position: relative; /* Untuk ornamen jika diletakkan di sini */
+}
+
+#receiptLogo {
+  display: block;
+  margin: 0 auto 25px auto;
+  max-width: 280px;
+  height: auto;
+}
+
+#receiptOutput .receipt-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#receiptOutput .receipt-header p.business-name {
+  font-size: 2em;
+  font-weight: 700;
+  color: var(--savana-green);
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+}
+
+#receiptOutput .receipt-header p.address-line,
+#receiptOutput .receipt-header p.contact-line {
+  font-size: 0.9em;
+  color: var(--savana-dark-grey);
+  margin: 3px 0;
+  line-height: 1.5;
+}
+#receiptOutput .receipt-header p.contact-line .icon {
+  margin-right: 5px;
+  color: var(--savana-green);
+}
+
+#receiptOutput .receipt-details {
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px dashed var(--savana-border-color);
+}
+
+#receiptOutput .receipt-details p {
+  margin: 7px 0;
+  font-size: 0.95em;
+}
+#receiptOutput .receipt-details p strong {
+  color: var(--savana-dark-grey);
+  min-width: 140px;
+  display: inline-block;
+}
+
+#receiptOutput h4 {
+  text-align: left;
+  margin-top: 20px;
+  margin-bottom: 12px;
+  color: var(--savana-green);
+  font-size: 1.3em;
+  border-bottom: 2px solid var(--savana-green);
+  padding-bottom: 6px;
+  font-weight: 600;
+}
+
+#receiptOutput table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  font-size: 0.9em;
+}
+
+#receiptOutput th,
+#receiptOutput td {
+  border-bottom: 1px solid #e8e8e8;
+  padding: 10px 5px;
+  text-align: left;
+}
+#receiptOutput td:nth-child(2),
+#receiptOutput td:nth-child(3),
+#receiptOutput td:nth-child(4),
+#receiptOutput td:nth-child(5) {
+  text-align: right;
+}
+#receiptOutput th:nth-child(2),
+#receiptOutput th:nth-child(3),
+#receiptOutput th:nth-child(4),
+#receiptOutput th:nth-child(5) {
+  text-align: right;
+}
+
+#receiptOutput th {
+  background-color: #f9f9f9;
+  color: var(--savana-dark-grey);
+  font-weight: 600;
+  border-bottom-width: 2px;
+  border-bottom-color: var(--savana-border-color);
+}
+#receiptOutput table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+#receiptOutput .receipt-totals-section {
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 2px dashed var(--savana-green);
+}
+#receiptOutput .receipt-totals-section p {
+  margin: 8px 0;
+  text-align: right;
+  font-size: 1.05em;
+  color: var(--savana-dark-grey);
+  display: flex;
+  justify-content: space-between;
+}
+#receiptOutput .receipt-totals-section p span:first-child {
+  text-align: left;
+  font-weight: 500;
+}
+#receiptOutput .receipt-totals-section p span:last-child {
+  font-weight: 600;
+}
+
+#receiptOutput .receipt-totals-section p.grand-total strong {
+  font-size: 1.3em;
+  color: var(--savana-green);
+}
+#receiptOutput .receipt-totals-section p.grand-total span:last-child strong {
+  font-weight: 700;
+}
+
+#receiptOutput .footer-notes {
+  text-align: center;
+  margin-top: 30px;
+  padding-top: 15px;
+  border-top: 1px solid var(--savana-border-color);
+  font-size: 0.9em;
+  color: #666;
+}
+#receiptOutput .footer-notes p {
+  margin: 4px 0;
+}
+
+/* Tombol di dalam Modal */
+#receiptModal .modal-content button#printReceiptButton {
+  margin-top: 20px; /* Jarak dari konten nota ke tombol print */
+  display: block; /* Agar width 100% bekerja */
+  width: calc(
+    100% - 60px
+  ); /* Sesuaikan dengan padding modal-content jika tombol di luar #receiptOutput */
+  margin-left: auto; /* Pusatkan tombol */
+  margin-right: auto;
+  margin-bottom: 10px; /* Jarak jika ada elemen lain di bawahnya */
+}
+
+/* Untuk layar kecil / mobile */
+@media (max-width: 600px) {
+  body {
+    padding: 0;
+  }
+  .container {
+    margin: 10px;
+    padding: 20px;
+    width: auto;
+  }
+  .app-header h1 {
+    font-size: 1.8em;
+  }
+  h2 {
+    font-size: 1.4em;
+  }
+
+  .modal-content {
+    width: 95%;
+    margin: 20px auto;
+    padding: 0;
+  } /* Padding modal diatur oleh #receiptOutput */
+  #receiptOutput {
+    font-size: 0.95em;
+    padding: 20px;
+  }
+  #receiptOutput table {
+    font-size: 0.85em;
+  }
+  #receiptOutput th,
+  #receiptOutput td {
+    padding: 6px 3px;
+  }
+  #receiptLogo {
+    max-width: 200px;
+  }
+
+  #receiptModal .modal-content button#printReceiptButton {
+    width: calc(
+      100% - 40px
+    ); /* Sesuaikan dengan padding modal-content (20px kiri + 20px kanan) */
+  }
+}
+/* ... (SEMUA GAYA DARI VERSI SEBELUMNYA TETAP DI SINI) ... */
+/* Tambahkan gaya baru ini di akhir file */
+
+#laporanSection {
+  margin-top: 30px;
+}
+
+#reportOutput {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid var(--savana-border-color);
+  border-radius: 8px;
+  background-color: #fdfdfd;
+}
+
+#reportOutput.hidden {
+  display: none;
+}
+
+.report-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.report-header h3 {
+  color: var(--savana-dark-grey);
+  font-size: 1.5em;
+  margin-bottom: 5px;
+}
+.report-header p {
+  font-size: 0.9em;
+  color: #666;
+  margin: 0;
+}
+
+.report-summary-cards {
+  display: flex;
+  justify-content: space-around;
+  gap: 15px;
+  margin-bottom: 25px;
+  flex-wrap: wrap; /* Agar responsif di layar kecil */
+}
+
+.report-summary-cards .card {
+  background-color: var(--savana-light-bg);
+  border-radius: 8px;
+  padding: 15px;
+  text-align: center;
+  flex: 1;
+  min-width: 150px; /* Lebar minimum kartu */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.report-summary-cards .card h4 {
+  margin: 0 0 10px 0;
+  font-size: 1em;
+  color: var(--savana-green);
+  font-weight: 600;
+}
+
+.report-summary-cards .card p {
+  margin: 0;
+  font-size: 1.4em;
+  font-weight: 700;
+  color: var(--savana-dark-grey);
+}
+
+.report-chart-container {
+  width: 100%;
+  margin: 20px 0;
+}
+
+.report-download-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.report-download-buttons button {
+  width: auto; /* Lebar tombol menyesuaikan konten */
+  min-width: 200px;
+}
+
+/* ... (SEMUA GAYA LAIN DARI VERSI SEBELUMNYA TETAP ADA) ... */
+
+/* Gaya Tambahan untuk Tombol Logout & Input Password */
+.form-group input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--savana-border-color);
+  border-radius: 6px;
+  box-sizing: border-box;
+  font-size: 1em;
+  background-color: #fff;
+}
+
+.form-group input[type="password"]:focus {
+  border-color: var(--savana-green);
+  box-shadow: 0 0 0 0.2rem rgba(151, 191, 13, 0.25);
+}
+
+.logout-button {
+  float: right;
+  background-color: #d9534f;
+  color: var(--savana-text-light);
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85em;
+  font-weight: 600;
+  transition: background-color 0.2s;
+  margin-top: 5px;
+}
+
+.logout-button:hover {
+  background-color: #c9302c;
+}
+
+/* Memperbaiki float layout di dalam header */
+.app-header::after {
+  content: "";
+  clear: both;
+  display: table;
+}

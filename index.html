@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aplikasi Nota Savana Adventrip</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="manifest" href="manifest.json" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas"></script>
+
+    <!-- ====== TAMBAHKAN 2 BARIS FIREBASE SDK DI BAWAH INI ====== -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database-compat.js"></script>
+    <!-- ======================================================== -->
+  </head>
+  <body>
+    <div class="container">
+      <header class="app-header">
+        <button id="logoutBtn" class="logout-button">Logout</button>
+        <img src="savana_logo.png" alt="Savana Adventrip Logo" id="appLogo" />
+        <h1>Aplikasi Nota Savana Adventrip</h1>
+      </header>
+
+      <div class="input-section">
+        <h2>Buat Nota Baru</h2>
+        <div class="form-group">
+          <label for="customerName">Nama Pelanggan (Opsional):</label>
+          <input type="text" id="customerName" placeholder="Nama Pelanggan" />
+        </div>
+        <div class="form-group">
+          <label for="pickupDate">Tanggal Pengambilan/Trip:</label>
+          <input type="date" id="pickupDate" />
+        </div>
+        <div class="form-group">
+          <label for="itemSelect">Pilih Barang/Jasa:</label>
+          <select id="itemSelect"></select>
+        </div>
+        <div class="form-group">
+          <label for="itemQuantity">Jumlah:</label>
+          <input type="number" id="itemQuantity" value="1" min="1" />
+        </div>
+        <div class="form-group">
+          <label for="itemDuration">Durasi (hari):</label>
+          <input type="number" id="itemDuration" value="1" min="0" />
+          <small>(Isi 0 atau 1 jika bukan sewa harian/paket harga tetap)</small>
+        </div>
+        <button id="addItemButton" class="button-primary">Tambah Item</button>
+      </div>
+
+      <div class="order-summary-section">
+        <h2>Rincian Pesanan Saat Ini</h2>
+        <ul id="orderedItemsList"></ul>
+        <div class="form-group">
+          <label for="discountAmount">Diskon (Rp):</label>
+          <input
+            type="number"
+            id="discountAmount"
+            value="0"
+            min="0"
+            placeholder="Masukkan jumlah diskon"
+          />
+        </div>
+        <div class="total-summary-display">
+          <p>Subtotal: Rp <span id="subTotalAmountText">0</span></p>
+          <p>Diskon: - Rp <span id="discountAmountText">0</span></p>
+          <p>
+            <strong
+              >Total Akhir: Rp <span id="grandTotalAmountText">0</span></strong
+            >
+          </p>
+        </div>
+        <button id="finalizeTransactionButton" class="button-primary">
+          Simpan Transaksi & Buat Nota
+        </button>
+      </div>
+
+      <hr class="section-divider" />
+
+      <div id="laporanSection">
+        <h2>Laporan Pendapatan Bulanan</h2>
+        <div class="form-group">
+          <label for="reportMonth">Pilih Bulan & Tahun Laporan:</label>
+          <input type="month" id="reportMonth" />
+        </div>
+        <button id="generateReportButton" class="button-secondary">
+          Buat Laporan
+        </button>
+
+        <div id="reportOutput" class="hidden">
+          <div class="report-header">
+            <h3>
+              Laporan Pendapatan Bulan <span id="reportMonthYearText"></span>
+            </h3>
+            <p>Dibuat pada: <span id="reportGeneratedDate"></span></p>
+          </div>
+          <div class="report-summary-cards">
+            <div class="card">
+              <h4>Total Pendapatan</h4>
+              <p id="reportTotalRevenue">Rp 0</p>
+            </div>
+            <div class="card">
+              <h4>Jumlah Transaksi</h4>
+              <p id="reportTotalTransactions">0</p>
+            </div>
+            <div class="card">
+              <h4>Item Paling Laris</h4>
+              <p id="reportTopItem">-</p>
+            </div>
+          </div>
+          <div class="report-chart-container">
+            <canvas id="incomeChart"></canvas>
+          </div>
+          <div class="report-download-buttons">
+            <button id="downloadCsvButton" class="button-secondary">
+              Download Data (CSV)
+            </button>
+            <button id="downloadPngButton" class="button-primary">
+              Download Visual (Gambar)
+            </button>
+            <button id="printReportButton" class="button-secondary">
+              Cetak Laporan Rinci
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div id="receiptModal" class="modal">
+        <div class="modal-content">
+          <span class="close-button">&times;</span>
+          <div id="receiptOutput"></div>
+          <button id="printReceiptButton" class="button-primary">
+            Cetak/Simpan Nota
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- File JS utama dipanggil setelah Firebase terpasang -->
+    <script src="script.js"></script>
+  </body>
+</html>
